@@ -51,4 +51,10 @@ public class AppTest
     public void trimsWhiteSpace() {
         assertNotEquals("String with tailing whitespace", fizzBuzz.buildString(5), "1 2 lucky 4 buzz ");
     }
+
+    @Test
+    public void shouldReturnCountForFizz() {
+        fizzBuzz.fizzOrBuzzOrLucky(6);
+        assertEquals("Should return count of 1 for fizz", fizzBuzz.getFizz(), 1);
+    }
 }
