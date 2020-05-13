@@ -18,43 +18,67 @@ public class AppTest
 
     @Test
     public void shouldReturnFizz() {
-        assertEquals("Returns fizz", fizzBuzz.fizzOrBuzzOrLucky(6), "fizz");
+        assertEquals("Returns fizz", "fizz", fizzBuzz.fizzOrBuzzOrLucky(6));
     }
 
     @Test
     public void shouldReturnLucky() {
-        assertEquals("prints lucky if integer contains a 3", fizzBuzz.fizzOrBuzzOrLucky(13), "lucky");
+        assertEquals("prints lucky if integer contains a 3", "lucky",fizzBuzz.fizzOrBuzzOrLucky(13));
     }
 
     @Test
     public void shouldReturnBuzz() {
-        assertEquals("Returns buzz", fizzBuzz.fizzOrBuzzOrLucky(5), "buzz");
+        assertEquals("Returns buzz", "buzz", fizzBuzz.fizzOrBuzzOrLucky(5));
     }
 
     @Test
     public void shouldReturnFizzbuzz() {
-        assertEquals("Returns fizzbuzz", fizzBuzz.fizzOrBuzzOrLucky(15), "fizzbuzz");
+        assertEquals("Returns fizzbuzz", "fizzbuzz", fizzBuzz.fizzOrBuzzOrLucky(15));
     }
 
     @Test
     public void shouldReturnNumber() {
-        assertEquals("Returns integer inserted when it is not divisible by 3 or 5", fizzBuzz.fizzOrBuzzOrLucky(4), "4");
+        assertEquals("Returns integer inserted when it is not divisible by 3 or 5", "4", fizzBuzz.fizzOrBuzzOrLucky(4));
     }
 
     //stringBuilder
     @Test
     public void shouldReturnAStringOfFizzbuzz() {
-        assertEquals("Returns a concatenated string result", fizzBuzz.buildString(13), "1 2 lucky 4 buzz fizz 7 8 fizz buzz 11 fizz lucky");
+        assertEquals("Returns a concatenated string result", "1 2 lucky 4 buzz fizz 7 8 fizz buzz 11 fizz lucky", fizzBuzz.buildString(13));
     }
 
     @Test
     public void trimsWhiteSpace() {
-        assertNotEquals("String with tailing whitespace", fizzBuzz.buildString(5), "1 2 lucky 4 buzz ");
+        assertNotEquals("String with tailing whitespace","1 2 lucky 4 buzz ", fizzBuzz.buildString(5));
     }
 
     @Test
     public void shouldReturnCountForFizz() {
-        fizzBuzz.fizzOrBuzzOrLucky(6);
-        assertEquals("Should return count of 1 for fizz", fizzBuzz.getFizz(), 1);
+        fizzBuzz.buildString(6);
+        assertEquals("Should return count of 1 for fizz",1, fizzBuzz.getFizzCount());
+    }
+
+    @Test
+    public void shouldReturnCountForBuzz() {
+        fizzBuzz.buildString(10);
+        assertEquals("Should return count of 1 for buzz", 2, fizzBuzz.getBuzzCount());
+    }
+
+    @Test
+    public void shouldReturnCountForFizzBuzz() {
+        fizzBuzz.buildString(45);
+        assertEquals("Should return count of 2 for fizzbuzz", 2, fizzBuzz.getFizzBuzzCount());
+    }
+
+    @Test
+    public void shouldReturnCountLucky() {
+        fizzBuzz.buildString(33);
+        assertEquals("Should return count of  for lucky", 7, fizzBuzz.getLuckyCount());
+    }
+//
+    @Test
+    public void shouldReturnCountInteger() {
+        fizzBuzz.buildString(15);
+        assertEquals("Should return count of 1 for fizz", 7, fizzBuzz.getIntegerCount());
     }
 }
